@@ -20,6 +20,8 @@ public class Tournament {
         initScore();
         for (int i = 0; i < strategies.size(); i++) {
             for (int j = 0; j < strategies.size(); j++) {
+                strategies.get(i).initStrategy();
+                strategies.get(j).initStrategy();
                 Confrontation c = new Confrontation(strategies.get(i), strategies.get(j), nbTurns);
                 c.playAllTurns();
                 score[i][j] = c.getS1Score();

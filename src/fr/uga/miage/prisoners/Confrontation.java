@@ -37,6 +37,10 @@ public class Confrontation {
             oldMovesS2[currentTurn] = m2;
 
             addPoints(m1, m2);
+
+            if(m1 == Move.LEAVE || m2 == Move.LEAVE) {
+                break;
+            }
         }
     }
 
