@@ -14,9 +14,10 @@ class BadTest {
         Move[] moves = new Move[(int) rand*100];
 
         for (int i = 0; i <moves.length; i++){
-            moves[i] = (Math.random() < (double) 1/3) ? Move.BETRAY : (Math.random() < (double) 2/3) ? Move.COOPERATE : Move.LEAVE;
+            double ran = Math.random();
+            moves[i] = (ran < (double) 1/3) ? Move.BETRAY : (ran < (double) 2/3) ? Move.COOPERATE : Move.LEAVE;
         }
-        assertTrue(Move.BETRAY == bad.play((int) rand*100, moves));
+        assertSame(Move.BETRAY, bad.play((int) rand * 100, moves));
     }
 
 }
