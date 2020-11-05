@@ -13,8 +13,8 @@ class FriendlyTest {
         Move[] moves = new Move[(int) rand*100];
 
         for (int i = 0; i <moves.length; i++){
-            moves[i] = (rand < 1/3) ? Move.BETRAY : (rand < 2/3) ? Move.COOPERATE : Move.LEAVE;
+            moves[i] = (Math.random() < (double) 1/3) ? Move.BETRAY : (Math.random() < (double) 2/3) ? Move.COOPERATE : Move.LEAVE;
         }
-        assertTrue(Move.COOPERATE == friendly.play((int) rand*100, moves));
+        assertSame(Move.COOPERATE, friendly.play((int) rand * 100, moves));
     }
 }
