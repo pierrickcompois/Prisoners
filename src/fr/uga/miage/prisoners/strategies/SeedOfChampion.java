@@ -2,11 +2,11 @@ package fr.uga.miage.prisoners.strategies;
 
 public class SeedOfChampion extends Strategies {
 
-    private int betrayCount = 0;
-    private boolean punishment = false;
-    private int punishmentDuring = 0;
-    private int nbBetrayOutOfPunishment = 0;
-    private int outOfPunishment = 0;
+    int betrayCount = 0;
+    boolean punishment = false;
+    int punishmentDuring = 0;
+    int nbBetrayOutOfPunishment = 0;
+    int outOfPunishment = 0;
 
     public SeedOfChampion(){
         super();

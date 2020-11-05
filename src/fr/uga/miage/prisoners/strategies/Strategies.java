@@ -15,4 +15,6 @@ public abstract class Strategies {
     public String getName() {
         return name;
     }
+
+    public void initStrategy() {}
 }

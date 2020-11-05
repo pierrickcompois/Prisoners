@@ -6,18 +6,16 @@ public class Resentful extends Strategies {
         super.name = "Resentful";
     }
 
-    private boolean needToBetray = false;
-
     @Override
     public Move play(int currentTurn, Move[] moves, int... score) {
+        boolean needToBetray = false;
+
         if(currentTurn == 0){
             return Move.COOPERATE;
         }
-
-        if (!needToBetray) {
-            needToBetray = moves[currentTurn-1] == Move.BETRAY;
+        for (Move m: moves) {
+            needToBetray = needToBetray || m == Move.BETRAY;
         }
-
         return needToBetray ? Move.BETRAY : Move.COOPERATE;
     }
 }
