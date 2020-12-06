@@ -1,13 +1,14 @@
 package fr.uga.miage.prisoners.strategies;
 
-public class GiveAndTakeHard extends Strategies {
+public class GiveAndTakeHard implements Strategies {
+    private String name;
+
     public GiveAndTakeHard(){
-        super();
-        super.name = "GiveAndTakeHard";
+        this.name = "GiveAndTakeHard";
     }
 
     @Override
-    public Move play(int currentTurn, Move[] moves, int... score) {
+    public Move execute(int currentTurn, Move[] moves, int... score) {
         boolean betrayedInTwoPreviousRounds = false;
 
         if(currentTurn == 0){
@@ -22,5 +23,20 @@ public class GiveAndTakeHard extends Strategies {
         }
 
         return betrayedInTwoPreviousRounds ? Move.BETRAY : Move.COOPERATE;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void initStrategy() {
+
     }
 }

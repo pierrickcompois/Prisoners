@@ -1,13 +1,15 @@
 package fr.uga.miage.prisoners.strategies;
 
-public class FieldTested4Shots extends Strategies {
+public class FieldTested4Shots implements Strategies {
+    private String name;
+
     public FieldTested4Shots(){
-        super();
-        super.name = "FieldTested4Shots";
+        name = "FieldTested4Shots";
     }
 
+
     @Override
-    public Move play(int currentTurn, Move[] moves, int... score) {
+    public Move execute(int currentTurn, Move[] moves, int... score) {
         int countBetray = 0;
         switch (currentTurn) {
             case 1:
@@ -20,9 +22,24 @@ public class FieldTested4Shots extends Strategies {
                 return Move.BETRAY;
             default:
                 for (Move m: moves) {
-                     countBetray += (m == Move.COOPERATE) ? 1 : 0;
+                    countBetray += (m == Move.COOPERATE) ? 1 : 0;
                 }
                 return (countBetray == 3 || countBetray == 4) ? Move.LEAVE : Move.COOPERATE;
         }
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void initStrategy() {
+
     }
 }

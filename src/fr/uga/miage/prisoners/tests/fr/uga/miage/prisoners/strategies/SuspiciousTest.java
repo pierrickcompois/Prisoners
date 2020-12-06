@@ -11,7 +11,7 @@ class SuspiciousTest {
     public void testBetrayFirstRound() {
         Strategies suspicious = new Suspicious();
         Move[] moves = new Move[0];
-        assertEquals(Move.BETRAY, suspicious.play(0, moves));
+        assertEquals(Move.BETRAY, suspicious.execute(0, moves));
     }
 
     @Test
@@ -28,7 +28,7 @@ class SuspiciousTest {
                 moves[i] = rand < 1.0/3.0 ? Move.COOPERATE : (rand < 2.0/3.0 ? Move.BETRAY : Move.LEAVE);
             }
 
-            testFailed = moves[currentTurn - 1] != suspicious.play(currentTurn, moves);
+            testFailed = moves[currentTurn - 1] != suspicious.execute(currentTurn, moves);
             remainingAttempts--;
         }
 

@@ -1,16 +1,32 @@
 package fr.uga.miage.prisoners.strategies;
 
-public class Suspicious extends Strategies {
+public class Suspicious implements Strategies {
+    private String name;
+
     public Suspicious(){
-        super();
-        super.name = "Suspicious";
+        this.name = "Suspicious";
     }
 
     @Override
-    public Move play(int currentTurn, Move[] moves, int... score) {
+    public Move execute(int currentTurn, Move[] moves, int... score) {
         if(currentTurn == 0){
             return Move.BETRAY;
         }
         return moves[currentTurn-1];
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void initStrategy() {
+
     }
 }

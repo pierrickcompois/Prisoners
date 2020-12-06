@@ -32,7 +32,7 @@ class HardMajorityTest {
             }
 
             moveToPlay = (count >= 0) ? Move.BETRAY : Move.COOPERATE;
-            testGood = (moveToPlay == s.play(turns, moves)) && testGood;
+            testGood = (moveToPlay == s.execute(turns, moves)) && testGood;
         }
         assertTrue(testGood);
     }

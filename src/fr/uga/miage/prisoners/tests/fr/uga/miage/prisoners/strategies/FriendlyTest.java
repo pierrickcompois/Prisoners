@@ -15,6 +15,6 @@ class FriendlyTest {
         for (int i = 0; i <moves.length; i++){
             moves[i] = (Math.random() < (double) 1/3) ? Move.BETRAY : (Math.random() < (double) 2/3) ? Move.COOPERATE : Move.LEAVE;
         }
-        assertSame(Move.COOPERATE, friendly.play((int) rand * 100, moves));
+        assertSame(Move.COOPERATE, friendly.execute((int) rand * 100, moves));
     }
 }

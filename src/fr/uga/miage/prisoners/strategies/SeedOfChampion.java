@@ -1,6 +1,8 @@
 package fr.uga.miage.prisoners.strategies;
 
-public class SeedOfChampion extends Strategies {
+public class SeedOfChampion implements Strategies {
+
+    private String name;
 
     int betrayCount = 0;
     boolean punishment = false;
@@ -9,12 +11,11 @@ public class SeedOfChampion extends Strategies {
     int outOfPunishment = 0;
 
     public SeedOfChampion(){
-        super();
-        super.name = "SeedOfChampion";
+        this.name = "SeedOfChampion";
     }
 
     @Override
-    public Move play(int currentTurn, Move[] moves, int... score) {
+    public Move execute(int currentTurn, Move[] moves, int... score) {
         int scoreSum = 0;
         double average;
         Move m = Move.COOPERATE;
@@ -54,7 +55,20 @@ public class SeedOfChampion extends Strategies {
             return Move.COOPERATE;
         }
         return m;
-
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void initStrategy() {
+
+    }
 }

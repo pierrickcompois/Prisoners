@@ -20,7 +20,7 @@ class HardTest {
                 moves[i] = Move.COOPERATE;
             }
 
-            testFailed = Move.BETRAY != hard.play(currentTurn, moves);
+            testFailed = Move.BETRAY != hard.execute(currentTurn, moves);
             remainingAttempts--;
         }
 
@@ -34,10 +34,10 @@ class HardTest {
         Move[] moves = new Move[3];
         moves[0] = Move.COOPERATE;
         moves[1] = Move.COOPERATE;
-        assertEquals(Move.BETRAY, hard.play(2, moves));
+        assertEquals(Move.BETRAY, hard.execute(2, moves));
 
         moves[0] = Move.COOPERATE;
         moves[2] = Move.BETRAY;
-        assertEquals(Move.LEAVE, hard.play(2, moves));
+        assertEquals(Move.LEAVE, hard.execute(2, moves));
     }
 }

@@ -9,7 +9,7 @@ class GiveAndTakeTest {
     public void testCooperateFirstRound() {
         Strategies giveAndTake = new GiveAndTake();
         Move[] moves = new Move[0];
-        assertEquals(Move.COOPERATE, giveAndTake.play(0, moves));
+        assertEquals(Move.COOPERATE, giveAndTake.execute(0, moves));
     }
 
     @Test
@@ -26,7 +26,7 @@ class GiveAndTakeTest {
                 moves[i] = rand < 1.0/3.0 ? Move.COOPERATE : (rand < 2.0/3.0 ? Move.BETRAY : Move.LEAVE);
             }
 
-            testFailed = moves[currentTurn - 1] != giveAndTake.play(currentTurn, moves);
+            testFailed = moves[currentTurn - 1] != giveAndTake.execute(currentTurn, moves);
             remainingAttempts--;
         }
 

@@ -11,7 +11,7 @@ class ResentfulTest {
     public void testCooperateFirstRound() {
         Strategies resentful = new Resentful();
         Move[] moves = new Move[0];
-        assertEquals(Move.COOPERATE, resentful.play(0, moves));
+        assertEquals(Move.COOPERATE, resentful.execute(0, moves));
     }
 
     @Test
@@ -27,7 +27,7 @@ class ResentfulTest {
                 moves[i] = Move.COOPERATE;
             }
 
-            testFailed = Move.COOPERATE != resentful.play(currentTurn, moves);
+            testFailed = Move.COOPERATE != resentful.execute(currentTurn, moves);
             remainingAttempts--;
         }
 
@@ -50,7 +50,7 @@ class ResentfulTest {
                 moves[i] = rand < 1.0/3.0 ? Move.COOPERATE : (rand < 2.0/3.0 ? Move.BETRAY : Move.LEAVE);
             }
 
-            testFailed = Move.BETRAY != resentful.play(currentTurn, moves);
+            testFailed = Move.BETRAY != resentful.execute(currentTurn, moves);
             remainingAttempts--;
         }
 

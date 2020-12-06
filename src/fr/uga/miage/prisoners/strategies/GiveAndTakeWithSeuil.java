@@ -1,13 +1,14 @@
 package fr.uga.miage.prisoners.strategies;
 
-public class GiveAndTakeWithSeuil extends Strategies {
+public class GiveAndTakeWithSeuil implements Strategies {
+    private String name;
+
     public GiveAndTakeWithSeuil(){
-        super();
-        super.name = "GiveAndTakeWithSeuil";
+        this.name = "GiveAndTakeWithSeuil";
     }
 
     @Override
-    public Move play(int currentTurn, Move[] moves, int... score) {
+    public Move execute(int currentTurn, Move[] moves, int... score) {
         boolean hasBetray = false;
         float average = 3;
         int scoreSum = 0;
@@ -31,7 +32,20 @@ public class GiveAndTakeWithSeuil extends Strategies {
         }
 
         return (average < 2) ? Move.LEAVE : hasBetray ? Move.BETRAY : Move.COOPERATE;
-
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void initStrategy() {
+
+    }
 }

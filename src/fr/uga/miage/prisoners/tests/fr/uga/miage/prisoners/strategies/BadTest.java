@@ -17,7 +17,7 @@ class BadTest {
             double ran = Math.random();
             moves[i] = (ran < (double) 1/3) ? Move.BETRAY : (ran < (double) 2/3) ? Move.COOPERATE : Move.LEAVE;
         }
-        assertSame(Move.BETRAY, bad.play((int) rand * 100, moves));
+        assertSame(Move.BETRAY, bad.execute((int) rand * 100, moves));
     }
 
 }

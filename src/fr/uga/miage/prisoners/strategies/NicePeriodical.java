@@ -1,13 +1,14 @@
 package fr.uga.miage.prisoners.strategies;
 
-public class NicePeriodical extends Strategies {
+public class NicePeriodical implements Strategies {
+    private String name;
+
     public NicePeriodical(){
-        super();
-        super.name = "NicePeriodical";
+        this.name = "NicePeriodical";
     }
 
     @Override
-    public Move play(int currentTurn, Move[] moves, int... score) {
+    public Move execute(int currentTurn, Move[] moves, int... score) {
         Move moveToPlay = Move.COOPERATE;
         switch (currentTurn%3){
             case 0:
@@ -21,5 +22,20 @@ public class NicePeriodical extends Strategies {
                 break;
         }
         return moveToPlay;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void initStrategy() {
+
     }
 }

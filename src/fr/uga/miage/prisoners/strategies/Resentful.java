@@ -1,13 +1,14 @@
 package fr.uga.miage.prisoners.strategies;
 
-public class Resentful extends Strategies {
+public class Resentful implements Strategies {
+    private String name;
+
     public Resentful(){
-        super();
-        super.name = "Resentful";
+        this.name = "Resentful";
     }
 
     @Override
-    public Move play(int currentTurn, Move[] moves, int... score) {
+    public Move execute(int currentTurn, Move[] moves, int... score) {
         boolean needToBetray = false;
 
         if(currentTurn == 0){
@@ -17,5 +18,20 @@ public class Resentful extends Strategies {
             needToBetray = needToBetray || m == Move.BETRAY;
         }
         return needToBetray ? Move.BETRAY : Move.COOPERATE;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void initStrategy() {
+
     }
 }

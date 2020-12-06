@@ -1,20 +1,9 @@
 package fr.uga.miage.prisoners.strategies;
 
-public abstract class Strategies {
-    protected String name;
-    private String description;
+public interface Strategies {
 
-
-    public abstract Move play(int currentTurn, Move[] moves, int... score);
-
-    @Override
-    public String toString() {
-        return name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void initStrategy() {}
+    Move execute(int currentTurn, Move[] moves, int... score);
+    String getName();
+    void setName(String name);
+    void initStrategy();
 }

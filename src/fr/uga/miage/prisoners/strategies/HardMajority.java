@@ -1,13 +1,14 @@
 package fr.uga.miage.prisoners.strategies;
 
-public class HardMajority extends Strategies {
+public class HardMajority implements Strategies {
+    private String name;
+
     public HardMajority(){
-        super();
-        super.name = "HardMajority";
+        this.name = "HardMajority";
     }
 
     @Override
-    public Move play(int currentTurn, Move[] moves, int... score) {
+    public Move execute(int currentTurn, Move[] moves, int... score) {
         int majority = 0;
         for (Move m: moves) {
             if (m != null) {
@@ -15,5 +16,20 @@ public class HardMajority extends Strategies {
             }
         }
         return majority <= 0 ? Move.BETRAY : Move.COOPERATE;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void initStrategy() {
+
     }
 }

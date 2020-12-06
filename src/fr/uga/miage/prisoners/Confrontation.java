@@ -45,11 +45,11 @@ public class Confrontation {
     }
 
     private Move playTurn(Strategies s, Move[] oldOpponentMoves) {
-        return s.play(currentTurn, oldOpponentMoves);
+        return s.execute(currentTurn, oldOpponentMoves);
     }
 
     private Move playTurn(Strategies s, Move[] oldOpponentMoves, int score) {
-        return s.play(currentTurn, oldOpponentMoves, score);
+        return s.execute(currentTurn, oldOpponentMoves, score);
     }
 
     private void addPoints(Move m1, Move m2) {

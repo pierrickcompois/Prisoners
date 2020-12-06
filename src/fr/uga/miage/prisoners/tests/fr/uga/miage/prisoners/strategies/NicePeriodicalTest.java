@@ -23,7 +23,7 @@ class NicePeriodicalTest {
 
             moveToPlay = (turns%3 == 2) ? Move.BETRAY : Move.COOPERATE;
 
-            testGood = (moveToPlay == s.play(turns, moves)) && testGood;
+            testGood = (moveToPlay == s.execute(turns, moves)) && testGood;
         }
         assertTrue(testGood);
     }
